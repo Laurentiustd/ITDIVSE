@@ -9,8 +9,8 @@
     <title>Login</title>
 </head>
 <body>
-    <x-navbar />
   <div class="wrapper">
+    <x-navbar />
     <div class="container main">
         <div class="row">
             <div class="col-md-6 side-image" style="background-image: url('{{asset('assets/cinemaReg.jpg')}}')">
