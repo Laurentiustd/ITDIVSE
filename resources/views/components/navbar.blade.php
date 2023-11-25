@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .container-navbar {
-            /* border: 2px solid red; */
             display: flex;
             padding: 1em;
             justify-content: space-between;
@@ -15,7 +19,6 @@
         }
 
         .container-navbar .links {
-            /* border: 2px solid red; */
             display: flex;
             gap: 10em;
             padding: 1em;
@@ -43,7 +46,7 @@
             padding: .5em 1.2em;
             border: none;
             border-radius: 10px;
-            font-weight: bold;
+            font-weight: bold; 
             font-size: 1.2em;
         }
 
