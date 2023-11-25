@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +32,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Admin Panel
+Route::get('/admin-panel', [MovieController::class, 'index1'])->name('admin.panel');
+Route::post('/add-movie', [MovieController::class, 'create'])->name('add.movie');
+// Homepage
+Route::get('/', [MovieController::class, 'index2'])->name('get.movie.homepage');
 
 require __DIR__.'/auth.php';
