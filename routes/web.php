@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/', [MovieController::class, 'index2'])->name('get.movie.homepage');
 
 Route::get('/detail', function () {
     return view('detail');
@@ -33,10 +31,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Admin Panel
-Route::get('/admin-panel', [MovieController::class, 'index1'])->name('admin.panel');
-Route::post('/add-movie', [MovieController::class, 'create'])->name('add.movie');
-// Homepage
-Route::get('/', [MovieController::class, 'index2'])->name('get.movie.homepage');
+Route::middleware('auth', 'is_admin')->group(function () {
+    Route::get('/admin-panel', [MovieController::class, 'index1'])->name('admin.panel');
+    Route::post('/add-movie', [MovieController::class, 'create'])->name('add.movie');
+});
 
 require __DIR__.'/auth.php';

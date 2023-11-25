@@ -13,53 +13,69 @@
         <x-navbar />
     </nav>
 
-    <div>
-        <form action="/add-movie" method="POST" enctype="multipart/form-data">
-            @csrf
-            <label for="">Cover</label>
-            <br>
-            <input type="file" name="Cover" value="{{ old('Cover') }}">
-            <br><br>
+    <div class="add">
+        <button type="button" onclick="openAddPopUp()">Add Movie</button>
+        <div class="addPopUp" id="addPopUp">
+            <h1>Add Movie</h1>
+            <form action="/add-movie" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+                @csrf
+                <div class="addPopUpInput">
+                    <div class="leftAddPopUp">
+                        <div>
+                            <label for="Cover">Cover</label>
+                            <input type="file" id="Cover" name="Cover" value="{{ old('Cover') }}">
+                            <span id="errorMessage1" style="color: red;"></span>
+                        </div>
+                        <div>
+                            <label for="">Genre Name</label>
+                            <input type="text" name="GenreName" value="{{ old('GenreName') }}">
+                            <span id="errorMessage2" style="color: red;"></span>
+                        </div>
+                        <div>
+                            <label for="">Title</label>
+                            <input type="text" name="Title" value="{{ old('Title') }}">
+                            <span id="errorMessage3" style="color: red;"></span>            
+                        </div>
+                        <div>
+                            <label for="">Director</label>
+                            <input type="text" name="Director" value="{{ old('Director') }}">
+                            <span id="errorMessage4" style="color: red;"></span>
+                        </div>
+                        <div>
+                            <label for="">Duration</label>
+                            <input type="number" name="Duration" value="{{ old('Duration') }}">
+                            <span id="errorMessage5" style="color: red;"></span>
+                        </div>
+                        <div>
+                            <label for="">Rating</label>
+                            <input type="number" name="Rating" value="{{ old('Rating') }}">
+                            <span id="errorMessage6" style="color: red;"></span>
+                        </div>
+                    </div>
+    
+                    <div class="rightAddPopUp">
+                        <div>
+                            <label for="">Description</label>
+                            <textarea name="Description" id="" cols="30" rows="12">{{ old('Description') }}</textarea>
+                            <span id="errorMessage7" style="color: red;"></span>
+                        </div>
+                        <div>
+                            <label for="">Release Date</label>
+                            <input type="date" name="ReleaseDate" value="{{ old('ReleaseDate') }}">
+                            <span id="errorMessage8" style="color: red;"></span>
+                        </div>
+                    </div>
+                </div>
 
-            <label for="">Genre Name</label>
-            <br>
-            <input type="text" name="GenreName" value="{{ old('GenreName') }}">
-            <br><br>
-
-            <label for="">Title</label>
-            <br>
-            <input type="text" name="Title" value="{{ old('Title') }}">
-            <br><br>
-
-            <label for="">Director</label>
-            <br>
-            <input type="text" name="Director" value="{{ old('Director') }}">
-            <br><br>
-
-            <label for="">Description</label>
-            <br>
-            <textarea name="Description" id="" cols="30" rows="10">{{ old('Description') }}</textarea>
-            <br><br>
-
-            <label for="">Duration</label>
-            <br>
-            <input type="number" name="Duration" value="{{ old('Duration') }}">
-            <br><br>
-
-            <label for="">Rating</label>
-            <br>
-            <input type="number" name="Rating" value="{{ old('Rating') }}">
-            <br><br>
-
-            <label for="">Release Date</label>
-            <br>
-            <input type="date" name="ReleaseDate" value="{{ old('ReleaseDate') }}">
-            <br><br>
-
-            <button type="submit" value="submit">Submit</button>
-        </form>
+                <div class="button">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="overlay" id="overlay" onclick="closeAddPopUp()"></div>
     </div>
-
+    
     <x-footer />
+    <script src="js/adminPanel.js"></script>
 </body>
 </html>
