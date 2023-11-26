@@ -159,7 +159,7 @@
             margin-right: 0;
             font-weight: bold;
         }
-        
+
             .container-footer .icon-links a img {
                 width: 2em;
                 height: 2em;
@@ -227,6 +227,7 @@
     </style>
 </head>
 <body>
+    
     <div class="container-navbar">
         <h1>CinephileSafari</h1>
         <div class="links">
