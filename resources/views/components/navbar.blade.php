@@ -127,7 +127,6 @@
         .container-footer p span {
             font-weight: bold;
         }
-
         .container-navbar h1{
             display: block;
             font-size: 2em;
@@ -160,8 +159,6 @@
                 font-size: 0.8em;
             }
         }
-
-
 
         @media screen and (max-width: 768px) {
             .container-navbar .links {
@@ -224,7 +221,7 @@
         <h1>CinephileSafari</h1>
         <div class="links">
             <ul>
-                <li><a href="">Our Theaters</a></li>
+                <li><a href="{{route('list')}}">Our Theaters</a></li>
                 <li><a href="">About Us</a></li>
                 @if (Auth::user())
                     <li><a href="">Booked Ticket</a></li>
@@ -234,7 +231,7 @@
                 @if (Auth::user())
                     <div class="dropdown">
                         <button class="username"><a href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                John Doe</a></button>
+                                {{Auth::user()->first_name}}</a></button>
                         <ul class="dropdown-menu">
                             <form action="/logout" method="POST">
                                 @csrf
