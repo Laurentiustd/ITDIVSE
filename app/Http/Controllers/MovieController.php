@@ -41,7 +41,7 @@ class MovieController extends Controller
         ]);
 
         $filename = $request->file('Cover')->getClientOriginalName();
-        $request->file('Cover')->storeAs('/public'.'/'.$request->Title.'/'.$filename);
+        $request->file('Cover')->storeAs('/public' . '/' . $request->Title . '/' . $filename);
 
         Movie::create([
             'Cover' => $filename,
@@ -57,6 +57,11 @@ class MovieController extends Controller
         return redirect('/admin-panel');
     }
 
+    public function detail($id)
+    {
+        $movie = Movie::where('MovieID', $id)->first();
+        return view('detail', compact('movie'));
+    }
     /**
      * Store a newly created resource in storage.
      */
@@ -76,11 +81,6 @@ class MovieController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Movie $movie)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      */

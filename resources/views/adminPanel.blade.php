@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="css/adminPanel.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
     <nav>
         <x-navbar />
@@ -34,7 +37,7 @@
                         <div>
                             <label for="">Title</label>
                             <input type="text" name="Title" value="{{ old('Title') }}">
-                            <span id="errorMessage3" style="color: red;"></span>            
+                            <span id="errorMessage3" style="color: red;"></span>
                         </div>
                         <div>
                             <label for="">Director</label>
@@ -52,7 +55,7 @@
                             <span id="errorMessage6" style="color: red;"></span>
                         </div>
                     </div>
-    
+
                     <div class="rightAddPopUp">
                         <div>
                             <label for="">Description</label>
@@ -74,8 +77,9 @@
         </div>
         <div class="overlay" id="overlay" onclick="closeAddPopUp()"></div>
     </div>
-    
+
     <x-footer />
     <script src="js/adminPanel.js"></script>
 </body>
+
 </html>
