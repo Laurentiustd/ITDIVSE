@@ -32,4 +32,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware('is_admin')->group(function () {
+    // Route::get('/admin', function () {
+    //     return view('admin');
+    // });
+});
+
 require __DIR__.'/auth.php';
