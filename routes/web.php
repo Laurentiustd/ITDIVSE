@@ -16,10 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MovieController::class, 'index2'])->name('get.movie.homepage');
-
-Route::get('/detail', function () {
-    return view('detail');
-});
+Route::get('/detail/{id}', [MovieController::class, 'detail'])->name('detail');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -36,4 +33,4 @@ Route::middleware('auth', 'is_admin')->group(function () {
     Route::post('/add-movie', [MovieController::class, 'create'])->name('add.movie');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
