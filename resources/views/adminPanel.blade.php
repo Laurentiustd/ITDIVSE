@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="css/adminPanel.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
     <nav>
         <x-navbar />
@@ -34,7 +37,7 @@
                         <div>
                             <label for="">Title</label>
                             <input type="text" name="Title" value="{{ old('Title') }}">
-                            <span id="errorMessage3" style="color: red;"></span>            
+                            <span id="errorMessage3" style="color: red;"></span>
                         </div>
                         <div>
                             <label for="">Director</label>
@@ -52,7 +55,7 @@
                             <span id="errorMessage6" style="color: red;"></span>
                         </div>
                     </div>
-    
+
                     <div class="rightAddPopUp">
                         <div>
                             <label for="">Description</label>
@@ -74,8 +77,69 @@
         </div>
         <div class="overlay" id="overlay" onclick="closeAddPopUp()"></div>
     </div>
-    
+
+    <div class="container mt-5">
+        <div class="card justify-content-center" style="background-color: #f8cb68; width: 100%">
+            <div class="card-body">
+                <h3 class="text-center mb-4">Now Playing</h3>
+                <div class="card" style="background-color: #f29559">
+                    <div class="d-flex flex-wrap">
+                        @forelse ($movies as $movie)
+                            <div class="card m-3 rounded-3"
+                                style="width: 17.3%; background-color: #f29559; border: none;">
+                                <a href="{{ route('detail', $movie->MovieID) }}"
+                                    style="text-decoration: none; color: black">
+                                    <img src="{{ asset('storage/' . $movie->Title . '/' . $movie->Cover) }}"
+                                        class="card-img-top rounded" alt="" style="width: 100%">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $movie->Title }}</h5>
+                                    </div>
+                                </a>
+                                <button type="button">Edit</button>
+                                <button type="button">Delete</button>
+                            </div>
+                        @empty
+                            <h5 class="mx-4 mt-3">Empty</h5>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container mt-5">
+        <div class="card" style="background-color: #f8cb68">
+            <div class="card-body">
+                <h3 class="text-center mb-4">Up Coming</h3>
+                <div class="card" style="background-color: #f29559">
+                    <div class="d-flex flex-wrap">
+                        @forelse ($movies as $movie)
+                            <div class="card m-3 rounded-3"
+                                style="width: 17.3%; background-color: #f29559; border: none;">
+                                <a href="{{ route('detail', $movie->MovieID) }}"
+                                    style="text-decoration: none; color: black">
+                                    <img src="{{ asset('storage/' . $movie->Title . '/' . $movie->Cover) }}"
+                                        class="card-img-top rounded" alt="" style="width: 100%">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $movie->Title }}</h5>
+                                    </div>
+                                </a>
+                                <button type="button">Edit</button>
+                                <button type="button">Delete</button>
+                            </div>
+                        @empty
+                            <h5 class="mx-4 mt-3">Empty</h5>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+
     <x-footer />
     <script src="js/adminPanel.js"></script>
 </body>
+
 </html>
