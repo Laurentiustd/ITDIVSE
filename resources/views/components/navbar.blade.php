@@ -46,7 +46,7 @@
             padding: .5em 1.2em;
             border: none;
             border-radius: 10px;
-            font-weight: bold; 
+            font-weight: bold;
             font-size: 1.2em;
         }
 
@@ -128,6 +128,16 @@
             font-weight: bold;
         }
 
+        .container-navbar h1{
+            display: block;
+            font-size: 2em;
+            margin-top: 0.67em;
+            margin-bottom: 0.67em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
+
         @media screen and (max-width: 1024px) {
             .container-navbar h1 {
                 font-size: 1.4em;
@@ -150,6 +160,8 @@
                 font-size: 0.8em;
             }
         }
+
+
 
         @media screen and (max-width: 768px) {
             .container-navbar .links {
