@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/adminPanel.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body>
@@ -19,6 +20,9 @@
     <div class="add">
         <button type="button" onclick="openAddPopUp()">Add Movie</button>
         <div class="addPopUp" id="addPopUp">
+            <div class="closeButton">
+                <i data-feather="x-circle" class="closeButtonIcon" onclick="closeAddPopUp()"></i>
+            </div>
             <h1>Add Movie</h1>
             <form action="/add-movie" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
                 @csrf
@@ -139,6 +143,9 @@
     </div><br><br>
 
     <x-footer />
+    <script>
+        feather.replace()
+    </script>
     <script src="js/adminPanel.js"></script>
 </body>
 
