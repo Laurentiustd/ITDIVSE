@@ -46,7 +46,7 @@
             padding: .5em 1.2em;
             border: none;
             border-radius: 10px;
-            font-weight: bold; 
+            font-weight: bold;
             font-size: 1.2em;
         }
 
@@ -127,6 +127,15 @@
         .container-footer p span {
             font-weight: bold;
         }
+        .container-navbar h1{
+            display: block;
+            font-size: 2em;
+            margin-top: 0.67em;
+            margin-bottom: 0.67em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
 
         @media screen and (max-width: 1024px) {
             .container-navbar h1 {
@@ -140,6 +149,16 @@
             .container-navbar .links {
                 font-size: .8em;
             }
+
+            .container-navbar h1{
+            display: block;
+            font-size: 2em;
+            margin-top: 0.67em;
+            margin-bottom: 0.67em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
 
             .container-footer .icon-links a img {
                 width: 2em;
@@ -208,11 +227,12 @@
     </style>
 </head>
 <body>
+
     <div class="container-navbar">
         <h1>CinephileSafari</h1>
         <div class="links">
             <ul>
-                <li><a href="">Our Theaters</a></li>
+                <li><a href="{{route('list')}}">Our Theaters</a></li>
                 <li><a href="">About Us</a></li>
                 @if (Auth::user())
                     <li><a href="">Booked Ticket</a></li>
@@ -222,7 +242,7 @@
                 @if (Auth::user())
                     <div class="dropdown">
                         <button class="username"><a href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                John Doe</a></button>
+                                {{Auth::user()->first_name}}</a></button>
                         <ul class="dropdown-menu">
                             <form action="/logout" method="POST">
                                 @csrf
