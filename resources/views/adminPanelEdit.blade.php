@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Panel</title>
-    <link rel="stylesheet" href="css/adminPanel.css">
+    <link rel="stylesheet" href="{{ asset('css/adminPanel.css') }}">
+    {{-- <link rel="stylesheet" href="../../public/css/adminPanel.css"> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -96,8 +97,8 @@
                                     </div>
                                 </a>
                                 <div class="buttons-container">
-                                    <button type="button" class="edit-btn"><a href="/edit-movie/{{$movie->MovieID}}">Edit</a></button>
-                                    <button type="button" class="delete-btn"><a href="/delete-movie/{{$movie->MovieID}}">Delete</a></button>
+                                    <button type="button" class="edit-btn">Edit</button>
+                                    <button type="button" class="delete-btn">Delete</button>
                                 </div>
                             </div>
                         @empty
@@ -129,7 +130,7 @@
                                     </div>
                                 </a>
                                 <div class="buttons-container">
-                                    <button type="button" class="edit-btn"><a href="/edit-movie/{{$movie->MovieID}}">Edit</a></button>
+                                    <button type="button" class="edit-btn"><a href="/edit-movie/{{$movie->MovieID}}" >Edit</a></button>
                                     <button type="button" class="delete-btn"><a href="/delete-movie/{{$movie->MovieID}}">Delete</a></button>
                                 </div>
                             </div>
@@ -142,8 +143,70 @@
         </div>
     </div><br><br>
 
+   <div class="update">
+    <div class="updatePopUp" id="updatePopUp">
+        <h1>Update Movie</h1>
+        <form action="/update-movie/{{$movie1->MovieID}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('patch')
+            <div class="addPopUpInput">
+                <div class="leftAddPopUp">
+                    <div>
+                        <label for="Cover">Cover</label>
+                        <input type="file" id="Cover" name="Cover" value="{{ old('Cover') }}">
+                        <span id="errorMessage1" style="color: red;"></span>
+                    </div>
+                    <div>
+                        <label for="">Genre Name</label>
+                        <input type="text" name="GenreName" value="{{ $movie1->GenreName }}">
+                        <span id="errorMessage2" style="color: red;"></span>
+                    </div>
+                    <div>
+                        <label for="">Title</label>
+                        <input type="text" name="Title" value="{{ $movie1->Title }}">
+                        <span id="errorMessage3" style="color: red;"></span>
+                    </div>
+                    <div>
+                        <label for="">Director</label>
+                        <input type="text" name="Director" value="{{ $movie1->Director }}">
+                        <span id="errorMessage4" style="color: red;"></span>
+                    </div>
+                    <div>
+                        <label for="">Duration</label>
+                        <input type="number" name="Duration" value="{{ $movie1->Duration }}">
+                        <span id="errorMessage5" style="color: red;"></span>
+                    </div>
+                    <div>
+                        <label for="">Rating</label>
+                        <input type="number" name="Rating" value="{{ $movie1->Rating }}">
+                        <span id="errorMessage6" style="color: red;"></span>
+                    </div>
+                </div>
+
+                <div class="rightAddPopUp">
+                    <div>
+                        <label for="">Description</label>
+                        <textarea name="Description" id="" cols="30" rows="12">{{ $movie1->Description }}</textarea>
+                        <span id="errorMessage7" style="color: red;"></span>
+                    </div>
+                    <div>
+                        <label for="">Release Date</label>
+                        <input type="date" name="ReleaseDate" value="{{ $movie1->ReleaseDate }}">
+                        <span id="errorMessage8" style="color: red;"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button">
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="overlay-update" id="overlay-update" onclick="closeUpdatePopUp()"></div>
+</div>
+
     <x-footer />
-    <script src="js/adminPanel.js"></script>
+    <script src="{{ asset('js/adminPanel.js') }}"></script>
 </body>
 
 </html>

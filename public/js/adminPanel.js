@@ -3,9 +3,18 @@ function openAddPopUp() {
     document.getElementById('overlay').style.display = 'block';
 }
 
+function openUpdatePopUp() {
+    document.getElementById('updatePopUp').style.display = 'block';
+    document.getElementById('overlay-update').style.display = 'block';
+}
+
 function closeAddPopUp() {
     document.getElementById('addPopUp').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
+}
+
+function closeUpdatePopUp() {
+    window.location.href = "http://localhost:8000/admin-panel";
 }
 
 function validateForm() {
@@ -99,3 +108,7 @@ function validateForm() {
     document.getElementById('overlay').style.display = 'none';
     return true;
 }
+
+document.querySelector('.submit-btn').addEventListener('submit', (e)=>{
+    e.preventDefault();
+})
