@@ -19,7 +19,7 @@
                 <h3 class="text-center mb-4">Now Playing</h3>
                 <div class="card" style="background-color: #f29559">
                     <div class="d-flex flex-wrap">
-                        @forelse ($movies as $movie)
+                        @forelse ($nowMovies  as $movie)
                             <div class="card m-3 rounded-3"
                                 style="width: 17.3%; background-color: #f29559; border: none;">
                                 <a href="{{ route('detail', $movie->MovieID) }}"
@@ -48,7 +48,7 @@
                 <h3 class="text-center mb-4">Up Coming</h3>
                 <div class="card" style="background-color: #f29559">
                     <div class="d-flex flex-wrap">
-                        @forelse ($movies as $movie)
+                        @forelse ($upcomingMovies  as $movie)
                             <div class="card m-3 rounded-3"
                                 style="width: 17.3%; background-color: #f29559; border: none;">
                                 <a href="{{ route('detail', $movie->MovieID) }}"

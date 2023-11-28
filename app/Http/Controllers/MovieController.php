@@ -15,13 +15,37 @@ class MovieController extends Controller
     public function index1()
     {
         $movies = Movie::all();
-        return view('adminPanel', compact('movies'));
+            $today = now()->format('Y-m-d');
+            $upcomingMovies = [];
+            $nowMovies = [];
+
+            foreach ($movies as $movie) {
+                $releaseDate = $movie->ReleaseDate;
+                if (strtotime($releaseDate) >= strtotime($today . ' + 10 days')) {
+                    $upcomingMovies[] = $movie;
+                } else {
+                    $nowMovies[] = $movie;
+                }
+            }
+            return view('adminPanel', compact('upcomingMovies', 'nowMovies'));
     }
 
     public function index2()
     {
-        $movies = Movie::all();
-        return view('homepage', compact('movies'));
+            $movies = Movie::all();
+            $today = now()->format('Y-m-d');
+            $upcomingMovies = [];
+            $nowMovies = [];
+
+            foreach ($movies as $movie) {
+                $releaseDate = $movie->ReleaseDate;
+                if (strtotime($releaseDate) >= strtotime($today . ' + 10 days')) {
+                    $upcomingMovies[] = $movie;
+                } else {
+                    $nowMovies[] = $movie;
+                }
+            }
+            return view('homepage', compact('upcomingMovies', 'nowMovies'));
     }
 
     /**
