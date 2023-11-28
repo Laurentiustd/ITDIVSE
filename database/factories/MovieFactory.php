@@ -12,7 +12,7 @@ class MovieFactory extends Factory
     public function definition()
     {
         return [
-            'Cover' => 'harrypotter.jpg',
+            'Cover' => 'storage/Harry Potter/HarryPotterCover.jpg',
             'GenreName' => 'Magic',
             'Title' => 'Harry Potter and the Philosopher\'s Stone',
             'Director' => 'Chris Columbus',
