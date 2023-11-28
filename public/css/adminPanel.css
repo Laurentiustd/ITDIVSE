@@ -44,7 +44,7 @@ nav {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.92);
     padding: 20px;
     background-color: #F29559;
     z-index: 1000;
@@ -53,6 +53,16 @@ nav {
 
 .updatePopUp{
     display: block;
+}
+
+.addPopUp .closeButton {
+    text-align: right;
+}
+
+.addPopUp .closeButton .closeButtonIcon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }
 
 .addPopUp h1, .updatePopUp h1 {
@@ -72,7 +82,7 @@ nav {
 .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp, .updatePopUp form .addPopUpInput .leftAddPopUp{
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 400px;
     margin: 30px;
 }
 
@@ -127,6 +137,10 @@ nav {
     html {
         font-size: 95%;
     }
+
+    .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp {
+        width: 325px;
+    }
 }
 
 @media(max-width: 768px) {
@@ -137,9 +151,13 @@ nav {
     .addPopUp, .updatePopUp {
         transform: translate(-50%, -50%) scale(0.75);
     }
+
+    .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp {
+        width: 300px;
+    }
 }
 
-@media(max-width: 450px) {
+@media(max-width: 600px) {
     html {
         font-size: 75%;
     }
