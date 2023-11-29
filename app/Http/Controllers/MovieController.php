@@ -6,6 +6,7 @@ use App\Models\Movie;
 use App\Http\Requests\StoreMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class MovieController extends Controller
 {
@@ -15,38 +16,51 @@ class MovieController extends Controller
     public function index1()
     {
         $movies = Movie::all();
-            $today = now()->format('Y-m-d');
-            $upcomingMovies = [];
-            $nowMovies = [];
+        $today = now()->format('Y-m-d');
+        $upcomingMovies = [];
+        $nowMovies = [];
 
-            foreach ($movies as $movie) {
-                $releaseDate = $movie->ReleaseDate;
-                if (strtotime($releaseDate) >= strtotime($today . ' + 10 days')) {
-                    $upcomingMovies[] = $movie;
-                } else {
-                    $nowMovies[] = $movie;
-                }
+        foreach ($movies as $movie) {
+            $releaseDate = $movie->ReleaseDate;
+            if (strtotime($releaseDate) >= strtotime($today . ' + 10 days')) {
+                $upcomingMovies[] = $movie;
+            } else {
+                $nowMovies[] = $movie;
             }
-            return view('adminPanel', compact('upcomingMovies', 'nowMovies'));
+        }
+        return view('adminPanel', compact('upcomingMovies', 'nowMovies'));
     }
 
+    // public function index2()
+    // {
+    //     $movies = Movie::paginate(10);
+    //     $today = now()->format('Y-m-d');
+    //     $upcomingMovies = [];
+    //     $nowMovies = [];
+
+    //     foreach ($movies as $movie) {
+    //         $releaseDate = $movie->ReleaseDate;
+    //         if (strtotime($releaseDate) >= strtotime($today . ' + 10 days')) {
+    //             $upcomingMovies[] = $movie;
+    //         } else {
+    //             $nowMovies[] = $movie;
+    //         }
+    //     }
+    //     return view('homepage')->with([
+    //         'upcomingMovies' => Movie::paginate(10),
+    //         'nowMovies' => Movie::paginate(10),
+    //         'movies'
+    //     ]);
+    //     // return view('homepage', compact('upcomingMovies', 'nowMovies', 'movies'));
+    // }
     public function index2()
     {
-            $movies = Movie::all();
-            $today = now()->format('Y-m-d');
-            $upcomingMovies = [];
-            $nowMovies = [];
-
-            foreach ($movies as $movie) {
-                $releaseDate = $movie->ReleaseDate;
-                if (strtotime($releaseDate) >= strtotime($today . ' + 10 days')) {
-                    $upcomingMovies[] = $movie;
-                } else {
-                    $nowMovies[] = $movie;
-                }
-            }
-            return view('homepage', compact('upcomingMovies', 'nowMovies'));
+        $today = now()->format('Y-m-d');
+        $nowMovies = Movie::where('ReleaseDate', '<', $today)->paginate(10, ['*'], 'now_playing_page');
+        $upcomingMovies = Movie::where('ReleaseDate', '>=', $today)->paginate(10, ['*'], 'upcoming_page');
+        return view('homepage', compact('upcomingMovies', 'nowMovies'));
     }
+
 
     /**
      * Show the form for creating a new resource.
