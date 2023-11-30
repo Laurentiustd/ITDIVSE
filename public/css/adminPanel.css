@@ -3,13 +3,19 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-nav {
-    background: #F29559;
-    padding: 0 20px 0 20px;
+.wrapper {
+    background-color: #F2D492;
 }
 
-.add, .update {
-    margin: 50px;
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add {
+    margin: 30px;
+    margin-right: 0;
 }
 
 .buttons-container{

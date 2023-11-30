@@ -206,7 +206,7 @@
 </div>
 
     <x-footer />
-    <script src="{{ asset('js/adminPanel.js') }}"></script>
+    <script src="{{ asset('js/adminPanelEdit.js') }}"></script>
 </body>
 
 </html>
