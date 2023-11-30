@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,8 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth', 'is_admin')->group(function () {
     Route::get('/admin-panel', [MovieController::class, 'index1'])->name('admin.panel');
     Route::post('/add-movie', [MovieController::class, 'create'])->name('add.movie');
+    Route::get('/edit-movie/{id}', [MovieController::class, 'show'])->name('edit.movie');
+    Route::patch('/update-movie/{id}', [MovieController::class, 'update'])->name('update.movie');
 });
 
 require __DIR__ . '/auth.php';

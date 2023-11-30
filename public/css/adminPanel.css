@@ -8,8 +8,25 @@ nav {
     padding: 0 20px 0 20px;
 }
 
-.add {
+.add, .update {
     margin: 50px;
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttons-container button{
+    padding: .5em 1.5em;
+    border-radius: 10px;
+    border: none;
+    background-color: #1F2C39;
+}
+
+.buttons-container button a{
+    text-decoration: none;
+    color: #F8CB68;
 }
 
 .add button {
@@ -22,72 +39,86 @@ nav {
     color: #F8CB68;
 }
 
-.addPopUp {
+.addPopUp, .updatePopUp {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.92);
     padding: 20px;
     background-color: #F29559;
     z-index: 1000;
     border-radius: 10px;
 }
 
-.addPopUp h1 {
+.updatePopUp{
+    display: block;
+}
+
+.addPopUp .closeButton {
+    text-align: right;
+}
+
+.addPopUp .closeButton .closeButtonIcon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.addPopUp h1, .updatePopUp h1 {
     text-align: center;
     font-weight: bolder;
 }
 
-.addPopUp label {
+.addPopUp label, .updatePopUp label {
     font-weight: bold;
 }
 
-.addPopUp form .addPopUpInput {
+.addPopUp form .addPopUpInput, .updatePopUp form .addPopUpInput {
     display: flex;
     margin-bottom: 20px;
 }
 
-.addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp {
+.addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp, .updatePopUp form .addPopUpInput .leftAddPopUp{
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 400px;
     margin: 30px;
 }
 
-.addPopUp form .addPopUpInput .leftAddPopUp div {
+.addPopUp form .addPopUpInput .leftAddPopUp div, .updatePopUp form .addPopUpInput .leftAddPopUp div {
     display: flex;
     flex-direction: column;
     margin-top: 6px;
     margin-bottom: 6px;
 }
 
-.addPopUp form .addPopUpInput .rightAddPopUp div {
+.addPopUp form .addPopUpInput .rightAddPopUp div, .updatePopUp form .addPopUpInput .rightAddPopUp div{
     display: flex;
     flex-direction: column;
     margin-top: 6px;
     margin-bottom: 6px;
 }
 
-.addPopUp form .addPopUpInput .leftAddPopUp div input {
+.addPopUp form .addPopUpInput .leftAddPopUp div input, .updatePopUp form .addPopUpInput .leftAddPopUp div input {
     border: 1px solid;
     border-radius: 5px;
 }
 
-.addPopUp form .addPopUpInput .rightAddPopUp div input, textarea {
+.addPopUp form .addPopUpInput .rightAddPopUp div input, textarea, .updatePopUp form .addPopUpInput .leftAddPopUp div input {
     border: 1px solid;
     border-radius: 5px;
 }
 
-.addPopUp form .addPopUpInput .rightAddPopUp div textarea {
+.addPopUp form .addPopUpInput .rightAddPopUp div textarea, .updatePopUp form .addPopUpInput .rightAddPopUp div textarea {
     resize: none;
 }
 
-.addPopUp form .button {
+.addPopUp form .button, .updatePopUp form .button {
     text-align: center;
 }
 
-.overlay {
+.overlay, .overlay-update {
     display: none;
     position: fixed;
     top: 0;
@@ -98,9 +129,17 @@ nav {
     z-index: 999;
 }
 
+.overlay-update{
+    display: block;
+}
+
 @media(max-width: 1366px) {
     html {
         font-size: 95%;
+    }
+
+    .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp {
+        width: 325px;
     }
 }
 
@@ -109,22 +148,26 @@ nav {
         font-size: 85%;
     }
 
-    .addPopUp {
+    .addPopUp, .updatePopUp {
         transform: translate(-50%, -50%) scale(0.75);
+    }
+
+    .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp {
+        width: 300px;
     }
 }
 
-@media(max-width: 450px) {
+@media(max-width: 600px) {
     html {
         font-size: 75%;
     }
     
-    .addPopUp form .addPopUpInput {
+    .addPopUp form .addPopUpInput, .updatePopUp form .addPopUpInput  {
         display: flex;
         flex-direction: column;
     }
 
-    .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp {
+    .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp, .updatePopUp form .addPopUpInput .leftAddPopUp{
         display: flex;
         flex-direction: column;
         margin-top: 0;

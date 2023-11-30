@@ -111,9 +111,11 @@ class MovieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Movie $movie)
+    public function show($id)
     {
-        //
+        $movie1 = Movie::where('MovieID', $id)->first();
+        $movies = Movie::all();
+        return view('adminPanelEdit', compact('movie1', 'movies'));
     }
 
     /**
@@ -122,9 +124,36 @@ class MovieController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMovieRequest $request, Movie $movie)
+    public function update(Request $request, $id)
     {
-        //
+        $movie = Movie::where('MovieID', $id)->first();
+
+        $request->validate([
+            'Cover' => ['required', 'image'],
+            'GenreName' => ['required', 'string', 'max:255'],
+            'Title' => ['required', 'string', 'max:255'],
+            'Director' => ['required', 'string', 'max:255'],
+            'Description' => ['required', 'string', 'max:255'],
+            'Duration' => ['required', 'integer', 'min:1'],
+            'Rating' => ['required', 'integer', 'min:1', 'max:5'],
+            'ReleaseDate' => ['required']
+        ]);
+
+        $filename = $request->file('Cover')->getClientOriginalName();
+        $request->file('Cover')->storeAs('/public' . '/' . $request->Title . '/' . $filename);
+
+        $movie->update([
+            'Cover' => $filename,
+            'GenreName' => $request->GenreName,
+            'Title' => $request->Title,
+            'Director' => $request->Director,
+            'Description' => $request->Description,
+            'Duration' => $request->Duration,
+            'Rating' => $request->Rating,
+            'ReleaseDate' => $request->ReleaseDate
+        ]);
+
+        return redirect('admin-panel');
     }
 
     /**

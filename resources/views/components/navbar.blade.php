@@ -227,7 +227,6 @@
     </style>
 </head>
 <body>
-
     <div class="container-navbar">
         <h1>CinephileSafari</h1>
         <div class="links">
