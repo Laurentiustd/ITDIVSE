@@ -227,12 +227,11 @@
     </style>
 </head>
 <body>
-    
     <div class="container-navbar">
         <h1>CinephileSafari</h1>
         <div class="links">
             <ul>
-                {{-- <li><a href="{{route('list')}}">Our Theaters</a></li> --}}
+                <li><a href="{{route('list')}}">Our Theaters</a></li>
                 <li><a href="">About Us</a></li>
                 @if (Auth::user())
                     <li><a href="">Booked Ticket</a></li>
