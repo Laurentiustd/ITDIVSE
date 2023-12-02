@@ -107,7 +107,7 @@
                                     </a>
                                     <div class="buttons-container">
                                         <button type="button" class="edit-btn"><a href="/edit-movie/{{$movie->MovieID}}">Edit</a></button>
-                                        <button type="button" class="delete-btn"><a href="/delete-movie/{{$movie->MovieID}}">Delete</a></button>
+                                        <button type="button" class="delete-btn"><a onclick="openModal({{$movie->MovieID}})">Delete</a></button>
                                     </div>
                                 </div>
                             @empty
@@ -172,7 +172,7 @@
             <div class="contents">
                 <p>Are you sure? <br>Because this action is <span>irreversible</span></p>
                 <div class="buttons">
-                    <button class="cancel">Cancel</button>
+                    <button class="cancel" onclick="closePopupDel()">Cancel</button>
                     <form action="" method="POST">
                         @csrf
                         @method('delete')

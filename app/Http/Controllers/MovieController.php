@@ -103,9 +103,11 @@ class MovieController extends Controller
      */
     public function show($id)
     {
+        $today = now()->format('Y-m-d');
         $movie1 = Movie::where('MovieID', $id)->first();
-        $movies = Movie::all();
-        return view('adminPanelEdit', compact('movie1', 'movies'));
+        $nowMovies = Movie::where('ReleaseDate', '<', $today)->paginate(10, ['*'], 'now_playing_page');
+        $upcomingMovies = Movie::where('ReleaseDate', '>=', $today)->paginate(10, ['*'], 'upcoming_page');
+        return view('adminPanelEdit', compact('movie1', 'nowMovies', 'upcomingMovies'));
     }
 
     /**

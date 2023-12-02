@@ -3,6 +3,10 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+body,html{
+    overflow-x: hidden;
+}
+
 .wrapper {
     background-color: #F2D492;
 }
@@ -28,6 +32,7 @@
     border-radius: 10px;
     border: none;
     background-color: #1F2C39;
+    color: #F8CB68;
 }
 
 .buttons-container button a{
@@ -243,6 +248,37 @@
 
     .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp {
         width: 300px;
+    }
+}
+
+@media(max-width:867px){
+    .card-title{
+        font-size: 1em;
+    }
+    .delete-container h1{
+        font-size: 1.8em;
+    }
+    .buttons-container{
+       display: flex;
+       flex-direction: column;
+       font-size: .8em;
+       gap: .5em;
+    }
+    .delete-popup{
+        padding: 1.5em;
+        width: 40em;
+    }
+    
+    .delete-container{
+        height: 15em;
+    }
+    
+    .contents p{
+        font-size: 1.2em;
+    }
+    
+    .buttons{
+        gap: 2.5em;
     }
 }
 
