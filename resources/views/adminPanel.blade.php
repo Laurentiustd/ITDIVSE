@@ -13,138 +13,158 @@
 </head>
 
 <body>
-    <nav>
-        <x-navbar />
-    </nav>
+    <div class="wrapper">
+        <nav>
+            <x-navbar />
+        </nav>
 
-    <div class="add">
-        <button type="button" onclick="openAddPopUp()">Add Movie</button>
-        <div class="addPopUp" id="addPopUp">
-            <div class="closeButton">
-                <i data-feather="x-circle" class="closeButtonIcon" onclick="closeAddPopUp()"></i>
-            </div>
-            <h1>Add Movie</h1>
-            <form action="/add-movie" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
-                @csrf
-                <div class="addPopUpInput">
-                    <div class="leftAddPopUp">
-                        <div>
-                            <label for="Cover">Cover</label>
-                            <input type="file" id="Cover" name="Cover" value="{{ old('Cover') }}">
-                            <span id="errorMessage1" style="color: red;"></span>
+        <div class="container mt-5">
+            <div class="card justify-content-center" style="background-color: #f8cb68; width: 100%">
+                <div class="card-body">
+                    <div class="menu">
+                        <div class="add">
+                            <button type="button" style="visibility: hidden;">Add Movie</button>
                         </div>
-                        <div>
-                            <label for="">Genre Name</label>
-                            <input type="text" name="GenreName" value="{{ old('GenreName') }}">
-                            <span id="errorMessage2" style="color: red;"></span>
-                        </div>
-                        <div>
-                            <label for="">Title</label>
-                            <input type="text" name="Title" value="{{ old('Title') }}">
-                            <span id="errorMessage3" style="color: red;"></span>
-                        </div>
-                        <div>
-                            <label for="">Director</label>
-                            <input type="text" name="Director" value="{{ old('Director') }}">
-                            <span id="errorMessage4" style="color: red;"></span>
-                        </div>
-                        <div>
-                            <label for="">Duration</label>
-                            <input type="number" name="Duration" value="{{ old('Duration') }}">
-                            <span id="errorMessage5" style="color: red;"></span>
-                        </div>
-                        <div>
-                            <label for="">Rating</label>
-                            <input type="number" name="Rating" value="{{ old('Rating') }}">
-                            <span id="errorMessage6" style="color: red;"></span>
-                        </div>
-                    </div>
-
-                    <div class="rightAddPopUp">
-                        <div>
-                            <label for="">Description</label>
-                            <textarea name="Description" id="" cols="30" rows="12">{{ old('Description') }}</textarea>
-                            <span id="errorMessage7" style="color: red;"></span>
-                        </div>
-                        <div>
-                            <label for="">Release Date</label>
-                            <input type="date" name="ReleaseDate" value="{{ old('ReleaseDate') }}">
-                            <span id="errorMessage8" style="color: red;"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="button">
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
-        </div>
-        <div class="overlay" id="overlay" onclick="closeAddPopUp()"></div>
-    </div>
-
-    <div class="container mt-5">
-        <div class="card justify-content-center" style="background-color: #f8cb68; width: 100%">
-            <div class="card-body">
-                <h3 class="text-center mb-4">Now Playing</h3>
-                <div class="card" style="background-color: #f29559">
-                    <div class="d-flex flex-wrap">
-                        @forelse ($movies as $movie)
-                            <div class="card m-3 rounded-3"
-                                style="width: 17.3%; background-color: #f29559; border: none;">
-                                <a href="{{ route('detail', $movie->MovieID) }}"
-                                    style="text-decoration: none; color: black">
-                                    <img src="{{ asset('storage/' . $movie->Title . '/' . $movie->Cover) }}"
-                                        class="card-img-top rounded" alt="" style="width: 100%">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $movie->Title }}</h5>
-                                    </div>
-                                </a>
-                                <div class="buttons-container">
-                                    <button type="button" class="edit-btn"><a href="/edit-movie/{{$movie->MovieID}}">Edit</a></button>
-                                    <button type="button" class="delete-btn"><a href="/delete-movie/{{$movie->MovieID}}">Delete</a></button>
+                        <h3 class="">Now Playing</h3>
+                        <div class="add">
+                            <button type="button" onclick="openAddPopUp()">Add Movie</button>
+                            <div class="addPopUp" id="addPopUp">
+                                <div class="closeButton">
+                                    <i data-feather="x-circle" class="closeButtonIcon" onclick="closeAddPopUp()"></i>
                                 </div>
-                            </div>
-                        @empty
-                            <h5 class="mx-4 mt-3">Empty</h5>
-                        @endforelse
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="container mt-5">
-        <div class="card" style="background-color: #f8cb68">
-            <div class="card-body">
-                <h3 class="text-center mb-4">Up Coming</h3>
-                <div class="card" style="background-color: #f29559">
-                    <div class="d-flex flex-wrap">
-                        @forelse ($movies as $movie)
-                            <div class="card m-3 rounded-3"
-                                style="width: 17.3%; background-color: #f29559; border: none;">
-                                <a href="{{ route('detail', $movie->MovieID) }}"
-                                    style="text-decoration: none; color: black">
-                                    <img src="{{ asset('storage/' . $movie->Title . '/' . $movie->Cover) }}"
-                                        class="card-img-top rounded" alt="" style="width: 100%">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $movie->Title }}</h5>
+                                <h1>Add Movie</h1>
+                                <form action="/add-movie" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+                                    @csrf
+                                    <div class="addPopUpInput">
+                                        <div class="leftAddPopUp">
+                                            <div>
+                                                <label for="Cover">Cover</label>
+                                                <input type="file" id="Cover" name="Cover" value="{{ old('Cover') }}">
+                                                <span id="errorMessage1" style="color: red;"></span>
+                                            </div>
+                                            <div>
+                                                <label for="">Genre Name</label>
+                                                <input type="text" name="GenreName" value="{{ old('GenreName') }}">
+                                                <span id="errorMessage2" style="color: red;"></span>
+                                            </div>
+                                            <div>
+                                                <label for="">Title</label>
+                                                <input type="text" name="Title" value="{{ old('Title') }}">
+                                                <span id="errorMessage3" style="color: red;"></span>
+                                            </div>
+                                            <div>
+                                                <label for="">Director</label>
+                                                <input type="text" name="Director" value="{{ old('Director') }}">
+                                                <span id="errorMessage4" style="color: red;"></span>
+                                            </div>
+                                            <div>
+                                                <label for="">Duration</label>
+                                                <input type="number" name="Duration" value="{{ old('Duration') }}">
+                                                <span id="errorMessage5" style="color: red;"></span>
+                                            </div>
+                                            <div>
+                                                <label for="">Rating</label>
+                                                <input type="number" name="Rating" value="{{ old('Rating') }}">
+                                                <span id="errorMessage6" style="color: red;"></span>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="rightAddPopUp">
+                                            <div>
+                                                <label for="">Description</label>
+                                                <textarea name="Description" id="" cols="30" rows="12">{{ old('Description') }}</textarea>
+                                                <span id="errorMessage7" style="color: red;"></span>
+                                            </div>
+                                            <div>
+                                                <label for="">Release Date</label>
+                                                <input type="date" name="ReleaseDate" value="{{ old('ReleaseDate') }}">
+                                                <span id="errorMessage8" style="color: red;"></span>
+                                            </div>
+                                        </div>
                                     </div>
-                                </a>
-                                <div class="buttons-container">
-                                    <button type="button" class="edit-btn"><a href="/edit-movie/{{$movie->MovieID}}">Edit</a></button>
-                                    <button type="button" class="delete-btn"><a onclick="openModal({{$movie->MovieID}})">Delete</a></button>
-                                </div>
+                    
+                                    <div class="button">
+                                        <button type="submit">Submit</button>
+                                    </div>
+                                </form>
                             </div>
-                        @empty
-                            <h5 class="mx-4 mt-3">Empty</h5>
-                        @endforelse
+                            <div class="overlay" id="overlay" onclick="closeAddPopUp()"></div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background-color: #f29559">
+                        <div class="d-flex flex-wrap">
+                            @forelse ($nowMovies  as $movie)
+                                <div class="card m-3 rounded-3"
+                                    style="width: 17.3%; background-color: #f29559; border: none;">
+                                    <a href="{{ route('detail', $movie->MovieID) }}"
+                                        style="text-decoration: none; color: black">
+                                        <img src="{{ asset('storage/' . $movie->Title . '/' . $movie->Cover) }}"
+                                            class="card-img-top rounded" alt="" style="width: 100%">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $movie->Title }}</h5>
+                                        </div>
+                                    </a>
+                                    <div class="buttons-container">
+                                        <button type="button" class="edit-btn"><a href="/edit-movie/{{$movie->MovieID}}">Edit</a></button>
+                                        <button type="button" class="delete-btn"><a href="/delete-movie/{{$movie->MovieID}}">Delete</a></button>
+                                    </div>
+                                </div>
+                            @empty
+                                <h5 class="mx-4 mt-3">Empty</h5>
+                            @endforelse
+                        </div>
+                    </div>
+                    <div class="container mt-5 d-flex justify-content-center">
+                        {{ $nowMovies->render() }}
                     </div>
                 </div>
             </div>
         </div>
-    </div><br><br>
+
+        <div class="container mt-5">
+            <div class="card" style="background-color: #f8cb68">
+                <div class="card-body">
+                    <div class="menu">
+                        <div class="add">
+                            <button type="button" style="visibility: hidden;">Add Movie</button>
+                        </div>
+                        <h3 class="">Up Coming</h3>
+                        <div class="add">
+                            <button type="button" onclick="openAddPopUp()">Add Movie</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card" style="background-color: #f29559">
+                        <div class="d-flex flex-wrap">
+                            @forelse ($upcomingMovies  as $movie)
+                                <div class="card m-3 rounded-3"
+                                    style="width: 17.3%; background-color: #f29559; border: none;">
+                                    <a href="{{ route('detail', $movie->MovieID) }}"
+                                        style="text-decoration: none; color: black">
+                                        <img src="{{ asset('storage/' . $movie->Title . '/' . $movie->Cover) }}"
+                                            class="card-img-top rounded" alt="" style="width: 100%">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $movie->Title }}</h5>
+                                        </div>
+                                    </a>
+                                    <div class="buttons-container">
+                                        <button type="button" class="edit-btn"><a href="/edit-movie/{{$movie->MovieID}}">Edit</a></button>
+                                        <button type="button" class="delete-btn"><a onclick="openModal({{$movie->MovieID}})">Delete</a></button>
+                                    </div>
+                                </div>
+                            @empty
+                                <h5 class="mx-4 mt-3">Empty</h5>
+                            @endforelse
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="container mt-5 d-flex justify-content-center">
+                    {{ $upcomingMovies->render() }}
+                </div>
+            </div>
+        </div><br><br>
 
     <div class="delete-popup">
         <div class="delete-container">
@@ -163,7 +183,8 @@
         </div>
     </div>
 
-    <x-footer />
+        <x-footer />
+    </div>
     <script>
         feather.replace()
     </script>
