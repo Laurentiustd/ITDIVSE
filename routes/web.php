@@ -23,6 +23,10 @@ Route::get('/list-theater', function () {
     return view('list-theater');
 })->name('list');
 
+Route::get('/aboutUs', function () {
+    return view('aboutUs');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
