@@ -18,19 +18,19 @@
     margin-right: 0;
 }
 
-.buttons-container{
+.buttons-container, .updateDeleteButton{
     display: flex;
     justify-content: space-around;
 }
 
-.buttons-container button{
+.buttons-container button, .updateDeleteButton button{
     padding: .5em 1.5em;
     border-radius: 10px;
     border: none;
     background-color: #1F2C39;
 }
 
-.buttons-container button a{
+.buttons-container button a, .updateDeleteButton button a{
     text-decoration: none;
     color: #F8CB68;
 }
@@ -230,6 +230,10 @@
     .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp {
         width: 325px;
     }
+
+    .updateDeleteButton {
+        font-size: 60%;
+    }
 }
 
 @media(max-width: 768px) {
@@ -243,6 +247,10 @@
 
     .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp {
         width: 300px;
+    }
+
+    .updateDeleteButton {
+        font-size: 40%;
     }
 }
 
@@ -261,5 +269,9 @@
         flex-direction: column;
         margin-top: 0;
         margin-bottom: 0;
+    }
+
+    .updateDeleteButton {
+        font-size: 20%;
     }
 }
