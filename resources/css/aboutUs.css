@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    background-color: #f2d492;
+    overflow-x: hidden;
+}
+
+.container-about-us {
+    /* border: 2px solid red; */
+    padding: 1em;
+}
+
+.container-about-us .story,
+.container-about-us .mission {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.8em;
+}
+
+.container-about-us .story .texts,
+.container-about-us .mission .texts {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    width: 50em;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.5em;
+    padding: 1em;
+}
+
+.container-about-us .story .texts h1,
+.container-about-us .mission .texts h1,
+.container-about-us .contacts .inputs h1 {
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 3em;
+}
+
+.container-about-us .story .texts h1 span {
+    color: #f04e23;
+}
+
+.container-about-us .mission .texts h1 span {
+    color: #3886c1;
+}
+
+.container-about-us .contacts .inputs h1 span {
+    color: #ffff;
+}
+
+.contacts {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1em;
+    font-size: 1.2em;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.contacts .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.contacts .inputs input {
+    width: 30em;
+    height: 4em;
+    border-radius: 15px;
+    border: 1px solid black;
+    background-color: transparent;
+}
+
+.contacts .inputs .message textarea {
+    background-color: transparent;
+    border: 1px solid black;
+    resize: none;
+    width: 30em;
+}
+
+.contacts .inputs button {
+    padding: 1em 2em;
+    background-color: #1f2c39;
+    color: #f8cb68;
+    box-shadow: 2px 6px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 6px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 6px 5px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+}
+
+.contacts .inputs button:active {
+    position: relative;
+    top: 3px;
+    box-shadow: none;
+}
+
+
+@media screen and (max-width: 1280px) {
+    .container-about-us .story .texts,
+    .container-about-us .mission .texts {
+        font-size: 1.2em;
+    }
+
+    .container-about-us .story .texts h1,
+    .container-about-us .mission .texts h1,
+    .container-about-us .contacts .inputs h1 {
+        font-size: 2.5em;
+    }
+    .container-about-us .story img,
+    .container-about-us .mission img {
+        width: 20em;
+        height: 20em;
+    }
+    .contacts .inputs input {
+        width: 25em;
+        height: 4em;
+    }
+    .contacts .maps iframe{
+        width: 25em;
+        height: 25em;
+    }
+    .contacts .inputs .message textarea{
+        width: 25em;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .container-about-us .story .texts,
+    .container-about-us .mission .texts {
+        font-size: 1em;
+    }
+
+    .container-about-us .story .texts h1,
+    .container-about-us .mission .texts h1,
+    .container-about-us .contacts .inputs h1 {
+        font-size: 2em;
+    }
+    .container-about-us .story img,
+    .container-about-us .mission img {
+        width: 17em;
+        height: 17em;
+    }
+    .contacts .inputs input {
+        width: 20em;
+        height: 3em;
+    }
+    .contacts .maps iframe{
+        width: 20em;
+        height: 20em;
+    }
+    .contacts .inputs .message textarea{
+        width: 20em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container-about-us .story .texts,
+    .container-about-us .mission .texts {
+        font-size: 0.8em;
+    }
+
+    .container-about-us .story .texts h1,
+    .container-about-us .mission .texts h1,
+    .container-about-us .contacts .inputs h1 {
+        font-size: 1.7em;
+    }
+    .container-about-us .story img,
+    .container-about-us .mission img {
+        width: 15em;
+        height: 15em;
+    }
+    .contacts .inputs input {
+        width: 17em;
+        height: 3em;
+    }
+    .contacts .maps iframe{
+        width: 17em;
+        height: 17em;
+    }
+    .contacts .inputs .message textarea{
+        width: 17em;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .container-about-us .story .texts,
+    .container-about-us .mission .texts {
+        font-size: 1em;
+        width: 80vw;
+    }
+    .container-about-us .story,
+    .container-about-us .mission{
+        flex-direction: column;
+    }
+    .container-about-us .story .texts h1,
+    .container-about-us .mission .texts h1,
+    .container-about-us .contacts .inputs h1 {
+        font-size: 1.5em;
+    }
+    .container-about-us .story img,
+    .container-about-us .mission img {
+        width: 12em;
+        height: 12em;
+    }
+    .contacts{
+        flex-direction: column;
+        gap: 2em;
+    }
+    .contacts .inputs input {
+        width: 17em;
+        height: 3em;
+    }
+    .contacts .maps iframe{
+        width: 80vw;
+        height: 17em;
+    }
+    .contacts .inputs .message textarea{
+        width: 17em;
+    }
+}
+
