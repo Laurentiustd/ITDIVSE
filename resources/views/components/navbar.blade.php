@@ -137,6 +137,11 @@
             font-weight: bold;
         }
 
+        .logo {
+            text-decoration: none;
+            color: black;
+        }
+
         @media screen and (max-width: 1024px) {
             .container-navbar h1 {
                 font-size: 1.4em;
@@ -149,6 +154,16 @@
             .container-navbar .links {
                 font-size: .8em;
             }
+
+            .container-navbar h1{
+            display: block;
+            font-size: 2em;
+            margin-top: 0.67em;
+            margin-bottom: 0.67em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+        }
 
             .container-footer .icon-links a img {
                 width: 2em;
@@ -218,9 +233,14 @@
 </head>
 <body>
     <div class="container-navbar">
-        <h1>CinephileSafari</h1>
+        <h1><a href="/" class="logo">La CineMAHH</a></h1>
         <div class="links">
             <ul>
+
+                @if(Auth::user() && Auth::user()->is_admin === 1)
+                    <li><a href="{{route('admin.panel')}}">Admin Panel</a></li>
+                @endif
+
                 <li><a href="{{route('list')}}">Our Theaters</a></li>
                 <li><a href="">About Us</a></li>
                 @if (Auth::user())

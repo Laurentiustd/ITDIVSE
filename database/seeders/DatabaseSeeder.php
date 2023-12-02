@@ -12,11 +12,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            MovieSeeder::class,
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\User::factory()->create([
+            'first_name' => 'admin',
+            'last_name' => 'keren',
+            'email' => 'admin@gmail.com',
+            'phone_number' => '0812345678',
+            'address' => 'Jalan Anggur',
+            'is_admin' => 1
+        ]);
+
+        \App\Models\User::factory()->create([
+            'first_name' => 'john',
+            'last_name' => 'doe',
+            'email' => 'johndoe@gmail.com',
+            'phone_number' => '0887654321',
+            'address' => 'Jalan Jeruk',
+            'is_admin' => 0
+        ]);
     }
 }
