@@ -19,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MovieController::class, 'index2'])->name('get.movie.homepage');
 Route::get('/detail/{id}', [MovieController::class, 'detail'])->name('detail');
 
+Route::get('/list-theater', function () {
+    return view('list-theater');
+})->name('list');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -32,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 Route::middleware('auth', 'is_admin')->group(function () {
     Route::get('/admin-panel', [MovieController::class, 'index1'])->name('admin.panel');
