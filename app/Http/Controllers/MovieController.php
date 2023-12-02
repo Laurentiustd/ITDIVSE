@@ -15,19 +15,9 @@ class MovieController extends Controller
      */
     public function index1()
     {
-        $movies = Movie::all();
         $today = now()->format('Y-m-d');
-        $upcomingMovies = [];
-        $nowMovies = [];
-
-        foreach ($movies as $movie) {
-            $releaseDate = $movie->ReleaseDate;
-            if (strtotime($releaseDate) >= strtotime($today . ' + 10 days')) {
-                $upcomingMovies[] = $movie;
-            } else {
-                $nowMovies[] = $movie;
-            }
-        }
+        $nowMovies = Movie::where('ReleaseDate', '<', $today)->paginate(10, ['*'], 'now_playing_page');
+        $upcomingMovies = Movie::where('ReleaseDate', '>=', $today)->paginate(10, ['*'], 'upcoming_page');
         return view('adminPanel', compact('upcomingMovies', 'nowMovies'));
     }
 
@@ -113,9 +103,11 @@ class MovieController extends Controller
      */
     public function show($id)
     {
+        $today = now()->format('Y-m-d');
         $movie1 = Movie::where('MovieID', $id)->first();
-        $movies = Movie::all();
-        return view('adminPanelEdit', compact('movie1', 'movies'));
+        $nowMovies = Movie::where('ReleaseDate', '<', $today)->paginate(10, ['*'], 'now_playing_page');
+        $upcomingMovies = Movie::where('ReleaseDate', '>=', $today)->paginate(10, ['*'], 'upcoming_page');
+        return view('adminPanelEdit', compact('movie1', 'nowMovies', 'upcomingMovies'));
     }
 
     /**
@@ -159,8 +151,10 @@ class MovieController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Movie $movie)
+    public function destroy($id)
     {
-        //
+        $movie = Movie::where('MovieID', $id)->first();
+        $movie::destroy($id);
+        return redirect('/admin-panel');
     }
 }

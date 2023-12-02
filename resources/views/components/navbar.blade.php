@@ -137,6 +137,11 @@
             font-weight: bold;
         }
 
+        .logo {
+            text-decoration: none;
+            color: black;
+        }
+
         @media screen and (max-width: 1024px) {
             .container-navbar h1 {
                 font-size: 1.4em;
@@ -228,9 +233,12 @@
 </head>
 <body>
     <div class="container-navbar">
-        <h1>CinephileSafari</h1>
+        <h1><a href="/" class="logo">La CineMAHH</a></h1>
         <div class="links">
             <ul>
+                @if(Auth::user() && Auth::user()->is_admin === 1)
+                    <li><a href="{{route('admin.panel')}}">Admin Panel</a></li>
+                @endif
                 <li><a href="{{route('list')}}">Our Theaters</a></li>
                 <li><a href="">About Us</a></li>
                 @if (Auth::user())

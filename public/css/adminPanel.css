@@ -3,28 +3,39 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-nav {
-    background: #F29559;
-    padding: 0 20px 0 20px;
+body,html{
+    overflow-x: hidden;
 }
 
-.add, .update {
-    margin: 50px;
+.wrapper {
+    background-color: #F2D492;
 }
 
-.buttons-container{
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add {
+    margin: 30px;
+    margin-right: 0;
+}
+
+.buttons-container, .updateDeleteButton{
     display: flex;
     justify-content: space-around;
 }
 
-.buttons-container button{
-    padding: .5em 1.5em;
+.buttons-container button,  .updateDeleteButton button{
+    padding: 1em 3em;
     border-radius: 10px;
     border: none;
     background-color: #1F2C39;
+    color: #F8CB68;
 }
 
-.buttons-container button a{
+.buttons-container button a, .updateDeleteButton button a{
     text-decoration: none;
     color: #F8CB68;
 }
@@ -133,6 +144,89 @@ nav {
     display: block;
 }
 
+.delete-popup{
+    padding: 2em;
+    border-radius: 20px;
+    background-color: #F29559;
+    width: 50em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.92);
+    display: none;
+}
+
+.delete-container{
+    background-color: white;
+    border-radius: 20px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    height: 20em;
+    text-align: center;
+}
+
+.delete-container h1{
+    font-weight: bold;
+}
+
+.contents{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 3em;
+    /* width: 30em; */
+}
+
+.contents p{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.contents p span{
+    color: red;
+}
+
+.buttons{
+    display: flex;
+    gap: 5em;
+    justify-content: center;
+}
+
+.buttons .cancel{
+    padding: .5em 1.5em;
+    border-radius: 10px;
+    border: none;
+    background-color: #192630;
+    color: #F8CB68;
+    box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+}
+
+.buttons .delete{
+    padding: .5em 1.5em;
+    border-radius: 10px;
+    border: none;
+    background-color: #F8CB68;
+    color: #192630;
+    box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+}
+
+.buttons .delete:active{
+    position: relative;
+    top: 3px;
+    box-shadow: none;
+}
+
+.buttons .cancel:active{
+    position: relative;
+    top: 3px;
+    box-shadow: none;
+}
+    
 @media(max-width: 1366px) {
     html {
         font-size: 95%;
@@ -140,6 +234,10 @@ nav {
 
     .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp {
         width: 325px;
+    }
+
+    .updateDeleteButton {
+        font-size: 60%;
     }
 }
 
@@ -154,6 +252,41 @@ nav {
 
     .addPopUp form .addPopUpInput .leftAddPopUp, .rightAddPopUp {
         width: 300px;
+    }
+
+    .updateDeleteButton {
+        font-size: 40%;
+    }
+}
+
+@media(max-width:867px){
+    .card-title{
+        font-size: 1em;
+    }
+    .delete-container h1{
+        font-size: 1.8em;
+    }
+    .buttons-container, .updateDeleteButton{
+       display: flex;
+       flex-direction: column;
+       font-size: .8em;
+       gap: .5em;
+    }
+    .delete-popup{
+        padding: 1.5em;
+        width: 40em;
+    }
+    
+    .delete-container{
+        height: 15em;
+    }
+    
+    .contents p{
+        font-size: 1.2em;
+    }
+    
+    .buttons{
+        gap: 2.5em;
     }
 }
 
@@ -172,5 +305,9 @@ nav {
         flex-direction: column;
         margin-top: 0;
         margin-bottom: 0;
+    }
+
+    .updateDeleteButton {
+        font-size: 20%;
     }
 }

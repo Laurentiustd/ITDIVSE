@@ -3,11 +3,21 @@ function openAddPopUp() {
     document.getElementById('overlay').style.display = 'block';
 }
 
+function openUpdatePopUp() {
+    document.getElementById('updatePopUp').style.display = 'block';
+    document.getElementById('overlay-update').style.display = 'block';
+}
+
 function closeAddPopUp() {
     document.getElementById('addPopUp').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
 }
 
+function closeUpdatePopUp() {
+    window.location.href = "http://localhost:8000/admin-panel";
+}
+
+function validateForm() {
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('Cover').addEventListener('change', validateCover);
     document.getElementsByName('GenreName')[0].addEventListener('input', validateGenreName);
@@ -118,6 +128,9 @@ function validateDescription() {
     return true;
 }
 
+document.querySelector('.submit-btn').addEventListener('submit', (e)=>{
+    e.preventDefault();
+})
 function validateReleaseDate() {
     var releaseDateInput = document.getElementsByName('ReleaseDate')[0];
     var errorMessage = document.getElementById('errorMessage8');
@@ -153,18 +166,9 @@ function validateForm() {
         return true;
     }
     return false;
+    }
 }
 
-function openModal(id){
-    const popUpDel = document.querySelector('.delete-popup')
-    popUpDel.style.display = 'block';
-    const formDel = document.querySelector('.delete-popup form')
-    formDel.action = "/delete-movie/" + id;
-}
-
-function closePopupDel(){
-    const popUpDel = document.querySelector('.delete-popup')
-    popUpDel.style.display = 'none';
-    const formDel = document.querySelector('.delete-popup form')
-    formDel.action = "";
-}
+document.querySelector('.submit-btn').addEventListener('submit', (e)=>{
+    e.preventDefault();
+})
