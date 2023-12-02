@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body class="bg-light">
+<body style="background-color: #f2d492">
     <nav>
         <x-navbar />
     </nav>
@@ -36,8 +36,8 @@
                         @endforelse
                     </div>
                 </div>
-                <div class="container mt-5 d-flex justify-content-center">
-                    {{ $nowMovies->render() }}
+                <div class="container-fluid mt-5 d-flex justify-content-center">
+                    {{ $nowMovies->onEachSide(1)->render() }}
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                         @endforelse
                     </div>
                 </div>
-                <div class="container mt-5 d-flex justify-content-center">
+                <div class="container-fluid mt-5 d-flex justify-content-center">
                     {{ $upcomingMovies->render() }}
                 </div>
             </div>
