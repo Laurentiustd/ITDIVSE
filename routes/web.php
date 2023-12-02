@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,17 +16,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/', [MovieController::class, 'index2'])->name('get.movie.homepage');
+Route::get('/detail/{id}', [MovieController::class, 'detail'])->name('detail');
 
-Route::get('/detail', function () {
-    return view('detail');
+Route::get('/list-theater', function () {
+    return view('list-theater');
+})->name('list');
+
+Route::get('/aboutUs', function () {
+    return view('aboutUs');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/list-theater', function () {
+    return view('list-theater');
+})->name('list');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -32,4 +41,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+
+Route::middleware('auth', 'is_admin')->group(function () {
+    Route::get('/admin-panel', [MovieController::class, 'index1'])->name('admin.panel');
+    Route::post('/add-movie', [MovieController::class, 'create'])->name('add.movie');
+    Route::get('/edit-movie/{id}', [MovieController::class, 'show'])->name('edit.movie');
+    Route::patch('/update-movie/{id}', [MovieController::class, 'update'])->name('update.movie');
+    Route::delete('/delete-movie/{id}', [MovieController::class, 'destroy'])->name('delete.movie');
+});
+
+require __DIR__ . '/auth.php';
