@@ -27,7 +27,7 @@
 
                    <header>Login</header>
                    <div class="input-field">
-                        <input type="email" class="input" id="email" name="email" required="">
+                        <input type="text" class="input" id="email" name="email" required="">
                         <label for="email">Email</label>
                         <span id="emailError" class="error"></span>
                     </div>

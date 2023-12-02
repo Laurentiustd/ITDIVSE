@@ -242,7 +242,7 @@
                 @endif
 
                 <li><a href="{{route('list')}}">Our Theaters</a></li>
-                <li><a href="">About Us</a></li>
+                <li><a href="/aboutUs">About Us</a></li>
                 @if (Auth::user())
                     <li><a href="">Booked Ticket</a></li>
                 @endif
@@ -255,7 +255,7 @@
                         <ul class="dropdown-menu">
                             <form action="/logout" method="POST">
                                 @csrf
-                                <li><a class="dropdown-item" href="#">Log Out</a></li>
+                                <li><button type="submit" class="dropdown-item" href="#">Log Out</button></li>
                             </form>
                         </ul>
                     </div>
