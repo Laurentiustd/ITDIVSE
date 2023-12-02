@@ -169,6 +169,9 @@ function validateForm() {
     }
 }
 
-document.querySelector('.submit-btn').addEventListener('submit', (e)=>{
-    e.preventDefault();
-})
+function openModal(id){
+    const popUpDel = document.querySelector('.delete-popup')
+    popUpDel.style.display = 'block';
+    const formDel = document.querySelector('.delete-popup form')
+    formDel.action = "/delete-movie/" + id;
+}

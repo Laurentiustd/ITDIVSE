@@ -133,6 +133,89 @@ nav {
     display: block;
 }
 
+.delete-popup{
+    padding: 2em;
+    border-radius: 20px;
+    background-color: #F29559;
+    width: 50em;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.92);
+    display: none;
+}
+
+.delete-container{
+    background-color: white;
+    border-radius: 20px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    height: 20em;
+    text-align: center;
+}
+
+.delete-container h1{
+    font-weight: bold;
+}
+
+.contents{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 3em;
+    /* width: 30em; */
+}
+
+.contents p{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.contents p span{
+    color: red;
+}
+
+.buttons{
+    display: flex;
+    gap: 5em;
+    justify-content: center;
+}
+
+.buttons .cancel{
+    padding: .5em 1.5em;
+    border-radius: 10px;
+    border: none;
+    background-color: #192630;
+    color: #F8CB68;
+    box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+}
+
+.buttons .delete{
+    padding: .5em 1.5em;
+    border-radius: 10px;
+    border: none;
+    background-color: #F8CB68;
+    color: #192630;
+    box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 3px 0px 0px rgba(0, 0, 0, 0.75);
+}
+
+.buttons .delete:active{
+    position: relative;
+    top: 3px;
+    box-shadow: none;
+}
+
+.buttons .cancel:active{
+    position: relative;
+    top: 3px;
+    box-shadow: none;
+}
+    
 @media(max-width: 1366px) {
     html {
         font-size: 95%;

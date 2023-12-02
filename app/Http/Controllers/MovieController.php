@@ -121,8 +121,10 @@ class MovieController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Movie $movie)
+    public function destroy($id)
     {
-        //
+        $movie = Movie::where('MovieID', $id)->first();
+        $movie::destroy($id);
+        return redirect('/admin-panel');
     }
 }

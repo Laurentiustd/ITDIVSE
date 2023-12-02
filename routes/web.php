@@ -34,6 +34,7 @@ Route::middleware('auth', 'is_admin')->group(function () {
     Route::post('/add-movie', [MovieController::class, 'create'])->name('add.movie');
     Route::get('/edit-movie/{id}', [MovieController::class, 'show'])->name('edit.movie');
     Route::patch('/update-movie/{id}', [MovieController::class, 'update'])->name('update.movie');
+    Route::delete('/delete-movie/{id}', [MovieController::class, 'destroy'])->name('delete.movie');
 });
 
 require __DIR__ . '/auth.php';
