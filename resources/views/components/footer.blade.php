@@ -212,7 +212,7 @@
             <a href=""><img src="{{ asset('assets/youtube-icon.png') }}" alt=""></a>
         </div>
         <hr>
-        <p>All Right Reserved <span>CinephileSafari© 2023</span></p>
+        <p>All Right Reserved <span>La CineMAHH© 2023</span></p>
     </div>
 </body>
 <script>

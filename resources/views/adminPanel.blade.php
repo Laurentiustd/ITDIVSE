@@ -108,7 +108,7 @@
                                     <br>
                                     <div class="updateDeleteButton buttons-container">
                                         <button type="button" class="edit-btn"><a href="/edit-movie/{{$movie->MovieID}}"><i data-feather="edit"></i></a></button>
-                                        <button type="button" class="delete-btn"><a href="/delete-movie/{{$movie->MovieID}}" style="color: red;"><i data-feather="trash-2"></i></a></button>
+                                        <button type="button" class="delete-btn"><a onclick="openModal({{$movie->MovieID}})" style="color: red;"><i data-feather="trash-2"></i></a></button>
                                     </div>
                                 </div>
                             @empty

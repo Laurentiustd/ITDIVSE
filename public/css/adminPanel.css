@@ -27,8 +27,8 @@ body,html{
     justify-content: space-around;
 }
 
-.updateDeleteButton{
-    gap: .5em;
+.updateDeleteButton {
+    font-size: 70%;
 }
 
 .buttons-container button,  .updateDeleteButton button{
@@ -241,11 +241,14 @@ body,html{
     }
 
     .updateDeleteButton {
-        font-size: 60%;
+        font-size: 50%;
     }
 }
 
 @media(max-width: 768px) {
+    body,html{
+        overflow-x: hidden;
+    }
     html {
         font-size: 85%;
     }
@@ -259,11 +262,14 @@ body,html{
     }
 
     .updateDeleteButton {
-        font-size: 40%;
+        font-size: 30%;
     }
 }
 
 @media(max-width:867px){
+    body,html{
+        overflow-x: hidden;
+    }
     .card-title{
         font-size: 1em;
     }
@@ -295,6 +301,9 @@ body,html{
 }
 
 @media(max-width: 600px) {
+    body,html{
+        overflow-x: hidden;
+    }
     html {
         font-size: 75%;
     }
@@ -312,6 +321,6 @@ body,html{
     }
 
     .updateDeleteButton {
-        font-size: 20%;
+        font-size: 10%;
     }
 }

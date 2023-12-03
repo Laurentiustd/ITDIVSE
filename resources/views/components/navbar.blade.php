@@ -29,6 +29,7 @@
             display: flex;
             list-style-type: none;
             gap: 2em;
+            margin: 0;
         }
 
         .container-navbar .links ul li a {
@@ -75,16 +76,17 @@
             display: none;
         }
 
-        .container-navbar .links .buttons .dropdown-menu {
+        .container-navbar .links .buttons .dropdown-menu-logout {
             position: absolute;
             border: 1px solid grey;
             display: none;
             background-color: whitesmoke;
             padding: .5em;
             border-radius: 10px;
+            right: 0;
         }
 
-        .container-navbar .links .buttons .dropdown-menu.show{
+        .container-navbar .links .buttons .dropdown-menu-logout.show{
             display: block;
         }
 
@@ -176,6 +178,9 @@
         }
 
         @media screen and (max-width: 768px) {
+            body,html{
+                overflow-x: hidden
+            }
             .container-navbar .links {
                 gap: 2em;
                 flex-direction: column;
@@ -196,11 +201,12 @@
                 display: none;
             }
 
-            .container-navbar .links .buttons .dropdown-menu{
+            .container-navbar .links .buttons .dropdown-menu-logout{
                 display: block;
                 padding: 0;
                 border: none;
-                margin-top: 1em;
+                /* margin-top: 1em; */
+                transform: translateX(115%)
             }
 
             .container-navbar .links ul {
@@ -252,7 +258,7 @@
                     <div class="dropdown">
                         <button class="username"><a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{Auth::user()->first_name}}</a></button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu-logout">
                             <form action="/logout" method="POST">
                                 @csrf
                                 <li><button type="submit" class="dropdown-item" href="#">Log Out</button></li>
@@ -277,7 +283,7 @@
         })
 
         const dropdownBTN = document.querySelector('.container-navbar .username')
-        const dropdownMenu = document.querySelector('.container-navbar .links .buttons .dropdown-menu')
+        const dropdownMenu = document.querySelector('.container-navbar .links .buttons .dropdown-menu-logout')
 
         dropdownBTN.addEventListener('click', ()=>{
             dropdownMenu.classList.toggle('show')
