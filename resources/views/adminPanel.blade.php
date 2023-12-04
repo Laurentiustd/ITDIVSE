@@ -25,7 +25,7 @@
                         <div class="add">
                             <button type="button" style="visibility: hidden;">Add Movie</button>
                         </div>
-                        <h3 class="">Now Playing</h3>
+                        <h3 id="bold">Now Playing</h3>
                         <div class="add">
                             <button type="button" onclick="openAddPopUp()">Add Movie</button>
                             <div class="addPopUp" id="addPopUp">
@@ -102,7 +102,7 @@
                                         <img src="{{ asset('storage/' . $movie->Title . '/' . $movie->Cover) }}"
                                             class="card-img-top rounded" alt="" style="width: 100%">
                                         <div class="card-body">
-                                            <h5 class="card-title">{{ $movie->Title }}</h5>
+                                            <h5 class="card-title" id="bold">{{ $movie->Title }}</h5>
                                         </div>
                                     </a>
                                     <br>
@@ -130,7 +130,7 @@
                         <div class="add">
                             <button type="button" style="visibility: hidden;">Add Movie</button>
                         </div>
-                        <h3 class="">Up Coming</h3>
+                        <h3 id="bold">Up Coming</h3>
                         <div class="add">
                             <button type="button" onclick="openAddPopUp()">Add Movie</button>
                         </div>
@@ -146,7 +146,7 @@
                                         <img src="{{ asset('storage/' . $movie->Title . '/' . $movie->Cover) }}"
                                             class="card-img-top rounded" alt="" style="width: 100%">
                                         <div class="card-body">
-                                            <h5 class="card-title">{{ $movie->Title }}</h5>
+                                            <h5 class="card-title" id="bold">{{ $movie->Title }}</h5>
                                         </div>
                                     </a>
                                     <br>

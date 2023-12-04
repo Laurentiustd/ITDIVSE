@@ -230,6 +230,10 @@ body,html{
     top: 3px;
     box-shadow: none;
 }
+
+#bold {
+    font-weight: 600;
+}
     
 @media(max-width: 1366px) {
     html {
