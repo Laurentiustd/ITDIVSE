@@ -10,6 +10,9 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        /* body,html{
+                overflow-x: hidden
+        } */
         .container-navbar {
             display: flex;
             padding: 1em;
@@ -250,7 +253,7 @@
                 <li><a href="{{route('list')}}">Our Theaters</a></li>
                 <li><a href="/aboutUs">About Us</a></li>
                 @if (Auth::user())
-                    <li><a href="">Booked Ticket</a></li>
+                    <li><a href="/list-booked">Booked Ticket</a></li>
                 @endif
             </ul>
             <div class="buttons">

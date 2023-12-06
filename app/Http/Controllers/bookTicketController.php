@@ -11,14 +11,11 @@ class bookTicketController extends Controller
 {
     public function create(Request $request)
     {
-        // $request->validate([
-        //     'BookingDate' => ['required', 'date'],
-        //     'BookingTime' => ['required', 'string', 'max:255'],
-        //     'SeatNumber' => ['required', 'string', 'max:255'],
-        //     'TheaterLocation' => ['required', 'string', 'max:255'],
-        //     // 'userID' => ['required', 'exists:users,id'],
-        //     'movieID' => ['required', 'exists:movies,MovieID'],
-        // ]);
+        $request->validate([
+            'BookingTime' => ['required'],
+            'SeatNumber' => ['required'],
+            'TheaterLocation' => ['required'],
+        ]);
 
         $today = \Carbon\Carbon::today();
         $movie = Movie::where('MovieID', $request->movieID)->first();

@@ -57,9 +57,9 @@
         @csrf
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog " style="max-width: 1206px; height: 717px;">
-                <div class="modal-content" style="width: 100%; height: 100%;">
+                <div class="modal-content" style="width: 100%; height: 100%;background-color: transparent; border: none">
                     <div class="modal-body">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" data-bs-dismiss="modal" style="color: white; background-color: transparent; border: none; font-size: 2em">X</button>
                         <div class="Book_Ticket">Book Ticket</div>
                         <div class="Movie_Title">{{ $movie->Title }}</div>
                         <div style="display: flex; justify-content: center; align-items: center;">
@@ -67,30 +67,36 @@
                         </div>
                         <div style="display: flex; justify-content: center; align-items: center;">
                             <div class="rapih" style="display: flexbox; justify-content: center;">
-                                <div class="Theater"> Theater : </div>
-                                <div class="dropdown" id="dropdown-theater">
-                                    <button class="btn btn-secondary dropdown-toggle button-choose-theater" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Choose Theater :
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="z-index: 9999999999999999">
-                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Central Park Mall'; document.querySelector('.button-choose-theater').innerHTML = 'Central Park Mall'">Central Park Mall</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Pacific Place'; document.querySelector('.button-choose-theater').innerHTML = 'Pacific Place'">Pacific Place</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Paris Van Java'; document.querySelector('.button-choose-theater').innerHTML = 'Paris Van Java'">Paris Van Java</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'AEON Mall'; document.querySelector('.button-choose-theater').innerHTML = 'AEON Mall'">AEON Mall</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Teraskota'; document.querySelector('.button-choose-theater').innerHTML = 'Teraskota'">Teraskota</a></li>
-                                    </ul>
-                                </div>
-                                <div class="Time"> Time : </div>
-                                <div class="dropdown" id="dropdown-time" style="z-index: 10">
-                                    <button class="btn btn-secondary dropdown-toggle button-choose-time" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
-                                        Choose Time :
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '12.00 WIB'; document.querySelector('.button-choose-time').innerHTML = '12.00 WIB'">12.00 WIB</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '14.00 WIB'; document.querySelector('.button-choose-time').innerHTML = '14.00 WIB'">14.00 WIB</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '16.00 WIB'; document.querySelector('.button-choose-time').innerHTML = '16.00 WIB'">16.00 WIB</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '18.00 WIB'; document.querySelector('.button-choose-time').innerHTML = '18.00 WIB'">18.00 WIB</a></li>
-                                    </ul>
+                                <div style="display: flex; justify-content: space-around">
+                                    <div class="theater-container">
+                                        <div class="Theater"> Theater : </div>
+                                        <div class="dropdown" id="dropdown-theater">
+                                            <button class="btn btn-secondary dropdown-toggle button-choose-theater" style="z-index: 5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Choose Theater :
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="z-index: 100">
+                                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Central Park Mall'; document.querySelector('.button-choose-theater').innerHTML = 'Central Park Mall'">Central Park Mall</a></li>
+                                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Pacific Place'; document.querySelector('.button-choose-theater').innerHTML = 'Pacific Place'">Pacific Place</a></li>
+                                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Paris Van Java'; document.querySelector('.button-choose-theater').innerHTML = 'Paris Van Java'">Paris Van Java</a></li>
+                                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'AEON Mall'; document.querySelector('.button-choose-theater').innerHTML = 'AEON Mall'">AEON Mall</a></li>
+                                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Teraskota'; document.querySelector('.button-choose-theater').innerHTML = 'Teraskota'">Teraskota</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="time-container">
+                                        <div class="Time"> Time : </div>
+                                        <div class="dropdown" id="dropdown-time" >
+                                            <button class="btn btn-secondary dropdown-toggle button-choose-time" type="button" style="z-index: 5" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
+                                                Choose Time :
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="z-index: 110">
+                                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '12.00 WIB'; document.querySelector('.button-choose-time').innerHTML = '12.00 WIB'">12.00 WIB</a></li>
+                                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '14.00 WIB'; document.querySelector('.button-choose-time').innerHTML = '14.00 WIB'">14.00 WIB</a></li>
+                                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '16.00 WIB'; document.querySelector('.button-choose-time').innerHTML = '16.00 WIB'">16.00 WIB</a></li>
+                                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '18.00 WIB'; document.querySelector('.button-choose-time').innerHTML = '18.00 WIB'">18.00 WIB</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="Seat"> Seat : </div>
                                 <div class="div-div-seat" style="display: flex;">
@@ -159,6 +165,15 @@
                 e.preventDefault();
                 tf.setAttribute('value', btn.innerHTML);
             })
+        })
+
+        const buttonBook = document.querySelector('.button-book');
+        const inputTime = document.getElementById('timeSelected');
+        const inputTheater = document.getElementById('theaterSelected');
+        buttonBook.addEventListener('click', ()=>{
+            if(inputTime.value === "" || inputTheater.value === ""){
+                alert('Time or Theater Must Be Selected')
+            }
         })
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
