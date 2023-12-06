@@ -1,0 +1,295 @@
+.model-content {
+    border-radius: 50px;
+}
+.model-dialog {
+    /* background-color: black; */
+}
+.Book_Ticket {
+    /* left: 477px;
+    top: 43px; */
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #f8cb68;
+    font-size: 48px;
+    font-family: Plus Jakarta Sans;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+.Theater {
+    /* width: 405px; */
+    /* left: 330px;
+    top: 218px; */
+    position: relative;
+    color: #f8cb68;
+    font-size: 32px;
+    font-family: Plus Jakarta Sans;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Movie_Title {
+    /* width: 855px; */
+    /* left: 7px;
+    top: 142px; */
+    align-items: center;
+    position: relative;
+    text-align: center;
+    color: #f8cb68;
+    font-size: 40px;
+    font-family: Plus Jakarta Sans;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+.Time {
+    /* width: 405px;
+    left: 330px;
+    top: 276px; */
+    position: relative;
+    color: #f8cb68;
+    font-size: 32px;
+    font-family: Plus Jakarta Sans;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+.Seat {
+    position: relative;
+    color: #f8cb68;
+    font-size: 32px;
+    font-family: Plus Jakarta Sans;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+.div-seat {
+    height: auto;
+    position: relative;
+    background: rgba(24.8, 37.84, 47.81, 0.3);
+    border-radius: 20px;
+    border: 3px rgba(255, 255, 255, 0.8) solid;
+    /* display: flexbox; */
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+}
+
+.div-seat-row {
+    display: flexbox;
+    flex-direction: row;
+}
+.div-seat button {
+    width: 47px;
+    height: 47px;
+    display: flexbox;
+    background: transparent;
+    border: 4px black solid;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #f8cb68;
+    font-size: 20px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    top: 0;
+    margin: 4px;
+}
+.movie-cover {
+    /* width: 256px; */
+    height: 361px;
+    /* left: 41px;
+    top: 218px; */
+    position: relative;
+    border-radius: 15px;
+}
+#input-seat-number {
+    position: relative;
+    color: rgba(255, 255, 255, 0.819);
+    background-color: rgba(255, 255, 255, 0.131);
+    font-size: 20px;
+    font-family: Plus Jakarta Sans;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+::placeholder {
+    color: rgba(255, 255, 255, 0.131);
+}
+.button-book {
+    position: relative;
+    text-align: center;
+    color: #192630;
+    font-size: 20px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 600;
+    background: #f8cb68;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#dropdown-time {
+    position: relative;
+    color: black;
+    font-size: 32px;
+    font-family: Plus Jakarta Sans;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+#dropdown-theater {
+    position: relative;
+    color: black;
+    font-size: 32px;
+    font-family: Plus Jakarta Sans;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+
+
+.Book_Ticket {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 24px;
+    top: 10px;
+}
+
+.Theater,
+.Time,
+.Seat {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+#dropdown-theater,
+#dropdown-time {
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    z-index: 1000;
+}
+
+.div-seat {
+    height: auto;
+    position: relative;
+    background: rgba(24.8, 37.84, 47.81, 0.3);
+    border-radius: 20px;
+    border: 3px rgba(255, 255, 255, 0.8) solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+}
+
+
+
+.div-seat-row {
+    display: flex;
+}
+
+#input-seat-number {
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+
+
+/* CSS umum */
+.modal-body {
+    background: #273845;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.model-content {
+    border-radius: 20px; /* Mengurangi radius border untuk memberikan tampilan yang lebih ringan */
+    display: flex;
+}
+@media (max-width: 767px) {
+    .modal-dialog {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .Book_Ticket {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        font-size: 24px;
+        top: 10px;
+    }
+
+    .Theater,
+    .Time,
+    .Seat {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+        position: relative;
+    }
+
+    #dropdown-theater,
+    #dropdown-time {
+        left: 50%;
+        transform: translateX(-50%);
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        position: relative;
+        z-index: 1000;
+    }
+
+    .div-seat {
+        height: auto;
+        position: relative;
+        background: rgba(24.8, 37.84, 47.81, 0.3);
+        border-radius: 20px;
+        border: 3px rgba(255, 255, 255, 0.8) solid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        justify-content: center;
+    }
+
+    .div-seat button {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        display: flex;
+    }
+
+    .div-seat-row {
+        display: flex;
+    }
+
+    #input-seat-number {
+        width: 100%;
+        margin-bottom: 10px;
+        position: relative;
+    }
+
+    .button-book {
+        width: 100%;
+        position: relative;
+    }
+
+    .movie-cover {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        position: relative;
+    }
+}

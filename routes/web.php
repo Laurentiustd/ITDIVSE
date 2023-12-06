@@ -1,6 +1,9 @@
 <?php
 
+
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\bookTicketController;
+use App\Http\Controllers\listBookedController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
@@ -27,10 +30,6 @@ Route::get('/aboutUs', function () {
     return view('aboutUs');
 });
 
-Route::get('/list-theater', function () {
-    return view('list-theater');
-})->name('list');
-
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -46,4 +45,13 @@ Route::middleware('auth', 'is_admin')->group(function () {
     Route::delete('/delete-movie/{id}', [MovieController::class, 'destroy'])->name('delete.movie');
 });
 
-require __DIR__ . '/auth.php';
+
+
+Route::middleware('auth')->group(function () {
+    Route::post('/book-new-ticket', [bookTicketController::class, 'create'])->name('add.ticket');
+    Route::get('/list-booked', [listBookedController::class, 'getListBooked'])->name('get.ticket');
+});
+
+
+
+require __DIR__.'/auth.php';
