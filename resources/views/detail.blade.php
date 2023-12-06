@@ -8,6 +8,10 @@
     <title>Detail</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384 EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     @vite('resources/css/book-ticket.css')
+
+    <style>
+
+    </style>
 </head>
 
 <body style="background-color: #f2d492">
@@ -65,63 +69,67 @@
                             <div class="rapih" style="display: flexbox; justify-content: center;">
                                 <div class="Theater"> Theater : </div>
                                 <div class="dropdown" id="dropdown-theater">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="btn btn-secondary dropdown-toggle button-choose-theater" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                         Choose Theater :
                                     </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Jakarta'">Jakarta</a></li>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="z-index: 9999999999999999">
+                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Central Park Mall'; document.querySelector('.button-choose-theater').innerHTML = 'Central Park Mall'">Central Park Mall</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Pacific Place'; document.querySelector('.button-choose-theater').innerHTML = 'Pacific Place'">Pacific Place</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Paris Van Java'; document.querySelector('.button-choose-theater').innerHTML = 'Paris Van Java'">Paris Van Java</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'AEON Mall'; document.querySelector('.button-choose-theater').innerHTML = 'AEON Mall'">AEON Mall</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Teraskota'; document.querySelector('.button-choose-theater').innerHTML = 'Teraskota'">Teraskota</a></li>
                                     </ul>
                                 </div>
                                 <div class="Time"> Time : </div>
-                                <div class="dropdown" id="dropdown-time">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="dropdown" id="dropdown-time" style="z-index: 10">
+                                    <button class="btn btn-secondary dropdown-toggle button-choose-time" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
                                         Choose Time :
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '12.00 WIB'">12.00 WIB</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '14.00 WIB'">14.00 WIB</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '16.00 WIB'">16.00 WIB</a></li>
-                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '18.00 WIB'">18.00 WIB</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '12.00 WIB'; document.querySelector('.button-choose-time').innerHTML = '12.00 WIB'">12.00 WIB</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '14.00 WIB'; document.querySelector('.button-choose-time').innerHTML = '14.00 WIB'">14.00 WIB</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '16.00 WIB'; document.querySelector('.button-choose-time').innerHTML = '16.00 WIB'">16.00 WIB</a></li>
+                                        <li><a class="dropdown-item" href="#" onclick="document.getElementById('timeSelected').value = '18.00 WIB'; document.querySelector('.button-choose-time').innerHTML = '18.00 WIB'">18.00 WIB</a></li>
                                     </ul>
                                 </div>
                                 <div class="Seat"> Seat : </div>
                                 <div class="div-div-seat" style="display: flex;">
                                     <div class="div-seat">
                                         <div class="div-seat-row">
-                                            <button onclick="">1</button>
-                                            <button onclick="">2</button>
-                                            <button onclick="">3</button>
-                                            <button onclick="">4</button>
-                                            <button onclick="">5</button>
-                                            <button onclick="">6</button>
-                                            <button onclick="">7</button>
-                                            <button onclick="">8</button>
-                                            <button onclick="">9</button>
-                                            <button onclick="">10</button>
+                                            <button class="seat-number">1</button>
+                                            <button class="seat-number">2</button>
+                                            <button class="seat-number">3</button>
+                                            <button class="seat-number">4</button>
+                                            <button class="seat-number">5</button>
+                                            <button class="seat-number">6</button>
+                                            <button class="seat-number">7</button>
+                                            <button class="seat-number">8</button>
+                                            <button class="seat-number">9</button>
+                                            <button class="seat-number">10</button>
                                         </div>
                                         <div class="div-seat-row">
-                                            <button onclick="">11</button>
-                                            <button onclick="">12</button>
-                                            <button onclick="">13</button>
-                                            <button onclick="">14</button>
-                                            <button onclick="">15</button>
-                                            <button onclick="">16</button>
-                                            <button onclick="">17</button>
-                                            <button onclick="">18</button>
-                                            <button onclick="">19</button>
-                                            <button onclick="">20</button>
+                                            <button class="seat-number">11</button>
+                                            <button class="seat-number">12</button>
+                                            <button class="seat-number">13</button>
+                                            <button class="seat-number">14</button>
+                                            <button class="seat-number">15</button>
+                                            <button class="seat-number">16</button>
+                                            <button class="seat-number">17</button>
+                                            <button class="seat-number">18</button>
+                                            <button class="seat-number">19</button>
+                                            <button class="seat-number">20</button>
                                         </div>
                                         <div class="div-seat-row">
-                                            <button onclick="">21</button>
-                                            <button onclick="">22</button>
-                                            <button onclick="">23</button>
-                                            <button onclick="">24</button>
-                                            <button onclick="">25</button>
-                                            <button onclick="">26</button>
-                                            <button onclick="">27</button>
-                                            <button onclick="">28</button>
-                                            <button onclick="">29</button>
-                                            <button onclick="">30</button>
+                                            <button class="seat-number">21</button>
+                                            <button class="seat-number">22</button>
+                                            <button class="seat-number">23</button>
+                                            <button class="seat-number">24</button>
+                                            <button class="seat-number">25</button>
+                                            <button class="seat-number">26</button>
+                                            <button class="seat-number">27</button>
+                                            <button class="seat-number">28</button>
+                                            <button class="seat-number">29</button>
+                                            <button class="seat-number">30</button>
                                         </div>
                                     </div>
                                 </div>
@@ -143,7 +151,16 @@
             </div>
         </div>
     </form>
-
+    <script>
+        const tf = document.querySelector('#input-seat-number');
+        const buttons = document.querySelectorAll('.seat-number');
+        buttons.forEach((btn)=>{
+            btn.addEventListener('click', (e)=>{
+                e.preventDefault();
+                tf.setAttribute('value', btn.innerHTML);
+            })
+        })
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <x-footer />

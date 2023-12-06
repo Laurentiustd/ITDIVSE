@@ -28,12 +28,16 @@
                                 Choose Theater :
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Jakarta'">Jakarta</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Central Park Mall'">Central Park Mall</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Pacific Place'">Pacific Place</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Paris Van Java'">Paris Van Java</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'AEON Mall'">AEON Mall</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="document.getElementById('theaterSelected').value = 'Teraskota'">Teraskota</a></li>
                             </ul>
                         </div>
                         <div class="Time"> Time : </div>
                         <div class="dropdown" id="dropdown-time">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
                                 Choose Time :
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
