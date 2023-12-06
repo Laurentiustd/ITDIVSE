@@ -1,20 +1,23 @@
 .card-border {
     width: 1100px;
     height: 500px;
-    top: 140px;
-    position: absolute;
-    background: #f29559;
+    /* top: 140px; */
+    position: relative;
+    background: #f8cb68;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 50px;
 }
 body {
-    background-color: #f8cb68;
+    background-color: #f2d492;
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    /* padding: -10px; */
+    /* align-items: center; */
 }
 .list-booked {
     margin-bottom: 40px;
@@ -23,14 +26,7 @@ body {
     font-family: Plus Jakarta Sans;
     font-weight: 700;
 }
-.card-body-booked {
-    width: 360px;
-    height: 251px;
-    position: relative;
-    background: #192630;
-    border-radius: 10px;
-    border: 1px #f8cb68 solid;
-}
+
 .card-head-booked {
     width: 360px;
     height: 71px;
@@ -45,6 +41,7 @@ body {
 .card {
     display: flex;
     flex-direction: column;
+    margin-right: 20px;
 }
 .card-theater {
     position: relative;
@@ -57,9 +54,32 @@ body {
 .scroll {
     width: 960px;
     height: 347px;
-    margin: 0 auto; 
+    margin: 0 auto;
     /* background-color: #192630; */
     display: flex;
     overflow-x: auto;
     white-space: nowrap;
+}
+.card-body-booked {
+    width: 360px;
+    height: 251px;
+    position: relative;
+    background: #192630;
+    border-radius: 10px;
+    border: 1px #f8cb68 solid;
+    padding: 0px;
+    color: #f8cb68;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.card-body-booked div {
+    margin-bottom: 10px; /* Beri jarak antar elemen div di dalam card-body-booked */
+    font-size: 16px; /* Ukuran font umum */
+}
+
+.card-body-booked div:first-child {
+    font-size: 18px; /* Ukuran font sedikit lebih besar untuk elemen pertama (No Ticket) */
+    font-weight: bold; /* Teks tebal untuk elemen pertama */
 }

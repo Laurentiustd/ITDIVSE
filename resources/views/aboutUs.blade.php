@@ -68,7 +68,6 @@
 
     <x-footer />
      <script>
-
         const submitBTN = document.querySelector('.container-about-us .contacts .inputs button')
         const nameInput = document.querySelector('.container-about-us .contacts .inputs .name input')
         const emailInput = document.querySelector('.container-about-us .contacts .inputs .email input')

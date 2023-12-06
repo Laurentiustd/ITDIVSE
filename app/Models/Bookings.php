@@ -8,10 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Bookings extends Model
 {
     use HasFactory;
+    public function movie(){
+        return $this->belongsTo(Movie::class, 'MovieID');
+    }
     protected $fillable = [
         'BookingDate',
         'BookingTime',
         'SeatNumber',
-        'TheaterLocation'
+        'TheaterLocation',
+        'UserID',
+        'MovieID',
     ];
 }
