@@ -205,11 +205,12 @@
             }
 
             .container-navbar .links .buttons .dropdown-menu-logout{
+                position: relative;
                 display: block;
                 padding: 0;
                 border: none;
                 /* margin-top: 1em; */
-                transform: translateX(115%)
+                transform: translateX(20%)
             }
 
             .container-navbar .links ul {
